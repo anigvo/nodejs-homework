@@ -42,7 +42,7 @@ const updateContact = async (contactId, contact) => {
   if (index === -1) {
     return undefined;
   }
-  data[index] = {};
+  data[index] = { ...data[index], ...contact };
   await write(data);
   return { id: contactId, ...contact };
 };

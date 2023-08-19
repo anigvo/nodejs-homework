@@ -1,9 +1,17 @@
 const joi = require("joi");
 
-const contactSchema = joi.object({
+const postContactSchema = joi.object({
   name: joi.string().required(),
   email: joi.string().email().required(),
-  phone: joi.number().required(),
+  phone: joi.string().required(),
 });
 
-module.exports = contactSchema;
+const putContactSchema = joi
+  .object({
+    name: joi.string(),
+    email: joi.string().email(),
+    phone: joi.string(),
+  })
+  .or("name", "email", "phone");
+
+module.exports = { postContactSchema, putContactSchema };
