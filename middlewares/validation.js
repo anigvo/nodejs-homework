@@ -7,12 +7,8 @@ const validateContact = (status) => (req, res, next) => {
   }
   const { error } = contactSchema.validate(req.body);
   if (error) {
-    const errorField = error.details
-      .map((detail) => {
-        return detail.context.label;
-      })
-      .join(", ");
-    throw CreateHttpError(status, `Missing required ${errorField} field`);
+    console.log(error.message)
+    throw CreateHttpError(status, error.message);
   }
   next();
 };
