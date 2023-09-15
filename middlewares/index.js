@@ -1,11 +1,11 @@
-const { validateContact, validateUpdateFavorite } = require("./validation");
+const { validateBody, validateOneField } = require("./validation");
 const isValidId = require("./isValidId");
 const authenticate = require("./authenticate");
 const upload = require("./upload");
 
 module.exports = {
-  validateContact,
-  validateUpdateFavorite,
+  validateBody,
+  validateOneField,
   isValidId,
   authenticate,
   upload,
